@@ -4,17 +4,61 @@
         <title>LarpOS™</title>
         <style>
             body {
+                background-image: url('https://github.com/Anycircle11139s/LarpOS/blob/main/LarpLarpLarpsahur.png?raw=true');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
                 background-color: #f0f0f0;
                 font-family: Arial, sans-serif;
+
+                margin: 0;
+                min-height: 100vh;
             }
             .center-image {
-                display:block;
-                margin-left:auto;
-                margin-right:auto;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
         </style>
-    <h1 style="text-align: center;"><strong>Welcome to my custom profile OS, LarpOS™</strong></h1>
-
-        <img src="https://github.com/Anycircle11139s/LarpOS/blob/main/LarpLarpLarpsahur.png?raw=true" alt="LarpOS Logo" width="700" height="800" class="center-image">
     </head>
+    <body>
+    <div style="position: absolute; width: 100%; display: flex; background-color: rgba(0, 0, 0, 0.902); color: #fff; justify-content: space-between;">
+    <p style="margin-left: 32px;">
+            LarpOS™
+        </p>
+
+        <p id="live-time" style="margin-right: 32px;">Loading...</p>
+     </div>
+    
+        <div style="border: solid; width: fit-content; border-radius: 16px; padding: 16px; background-color: white; position: absolute; top: 20%; left: 20%; 
+transform: translate(-50%, -50%);">
+        <h1 style="text-align: center;"><strong>Welcome to LarpOS™</strong></h1>
+        <p style="text-align: center;">Created by @NotALarp (Darsh) - "The Larp never ends" </p>
+        
+
+        <div style="border: solid; width: fit-content; margin: 0 auto; border-radius: 16px; padding: 16px;">
+            <a href="https://anycircle11139s.github.io/LarpLikeAPro/" style="text-decoration: none; color: black; font-weight: bold;">Larp Like A Pro</a>
+        </div>
+        </div>
+
+        <script>
+            function updateClock() {
+                const now = new Date();
+
+                const day = now.getDate();
+                const month = now.getMonth() + 1; // I did this because months are based on 0, so you have to add 1 to get the actual month number
+                const year = now.getFullYear().toString().slice(-2); // I did that so I could only pull the last 2 digits of the year, so it would be easier to read
+
+                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit'});
+                const formattedDate = `${day}/${month}/${year}`;
+
+                const formattedDateTime = `${formattedDate} ${timeString}`;
+                document.getElementById('live-time').textContent = formattedDateTime;
+
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        </script>
+    </body>
 </html>
