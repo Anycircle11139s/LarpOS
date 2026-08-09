@@ -27,13 +27,20 @@
             LarpOS™
         </p>
 
+        <p style="margin-left: 32px;">
+            <a href="https://github.com/Anycircle11139s/LarpOS" style="color: #fff; text-decoration: none;">Open Source On GitHub</a>
+
         <p id="live-time" style="margin-right: 32px;">Loading...</p>
      </div>
     
-        <div style="border: solid; width: fit-content; border-radius: 16px; padding: 16px; background-color: white; position: absolute; top: 20%; left: 20%; 
+        <div id="Welcome" style="border: solid; width: fit-content; border-radius: 16px; padding: 16px; background-color: white; position: absolute; top: 20%; left: 20%; 
 transform: translate(-50%, -50%);">
         <h1 style="text-align: center;"><strong>Welcome to LarpOS™</strong></h1>
         <p style="text-align: center;">Created by @NotALarp (Darsh) - "The Larp never ends" </p>
+        
+        <p id="welcomeheader" style="margin: 0; text-align: center; user-select: none;"> 
+            
+	    </p>
         
 
         <div style="border: solid; width: fit-content; margin: 0 auto; border-radius: 16px; padding: 16px;">
@@ -41,24 +48,6 @@ transform: translate(-50%, -50%);">
         </div>
         </div>
 
-        <script>
-            function updateClock() {
-                const now = new Date();
-
-                const day = now.getDate();
-                const month = now.getMonth() + 1; // I did this because months are based on 0, so you have to add 1 to get the actual month number
-                const year = now.getFullYear().toString().slice(-2); // I did that so I could only pull the last 2 digits of the year, so it would be easier to read
-
-                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit'});
-                const formattedDate = `${day}/${month}/${year}`;
-
-                const formattedDateTime = `${formattedDate} ${timeString}`;
-                document.getElementById('live-time').textContent = formattedDateTime;
-
-            }
-
-            updateClock();
-            setInterval(updateClock, 1000);
-        </script>
+        <script src="script.js" defer></script>
     </body>
 </html>
