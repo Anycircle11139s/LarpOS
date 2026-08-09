@@ -27,7 +27,7 @@ function dragElement(element) {
         return;
     }
 
-    const handle = document.getElementById('welcomeheader') || element;
+    const handle = element;
     let offsetX = 0;
     let offsetY = 0;
 
@@ -56,4 +56,36 @@ function dragElement(element) {
     }
 }
 
-dragElement(document.getElementById("Welcome"));
+function setupWindow(windowId, openButtonId, closeButtonId, defaultTop, defaultLeft) {
+    const element = document.getElementById(windowId);
+    if (!element) {
+        return;
+    }
+
+    dragElement(element);
+
+    function openWindow() {
+        element.style.display = "block";
+        element.style.top = defaultTop;
+        element.style.left = defaultLeft;
+        element.style.transform = "translate(-50%, -50%)";
+    }
+
+    function closeWindow() {
+        element.style.display = "none";
+    }
+
+    const closeButton = document.getElementById(closeButtonId);
+    if (closeButton) {
+        closeButton.addEventListener("click", closeWindow);
+    }
+
+    const openButton = document.getElementById(openButtonId);
+    if (openButton) {
+        openButton.addEventListener("click", openWindow);
+    }
+}
+
+setupWindow("Welcome", "welcomeopen", "welcomeclose", "20%", "20%");
+setupWindow("Hello", "helloopen", "helloclose", "32%", "62%");
+
