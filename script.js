@@ -88,4 +88,39 @@ function setupWindow(windowId, openButtonId, closeButtonId, defaultTop, defaultL
 
 setupWindow("Welcome", "welcomeopen", "welcomeclose", "20%", "20%");
 setupWindow("Hello", "helloopen", "helloclose", "32%", "62%");
+setupWindow("Terminal", "terminalopen", "terminalclose", "32%", "62%");
 
+function initTerminal() {
+    const input = document.getElementById('command-input');
+    const output = document.getElementById('output');
+    const terminalWindow = document.getElementById('Terminal');
+
+    if (!input || !output || !terminalWindow) return;
+
+    terminalWindow.addEventListener('click', () => {
+        input.focus();
+    });
+
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const command = input.value.trim().toLowerCase();
+
+            output.innerHTML += `<br>&gt; ${input.value.trim()}`;
+            if (command === 'help') {
+                output.innerHTML += '<br>Available commands:<br>  help    - Show this screen<br>  clear   - Clear terminal logs<br>  about   - OS Information<br>  date    - Show system time';
+            } else if (command === 'clear') {
+                output.innerHTML = '';
+            } else if (command === 'about') {
+                output.innerHTML += '<br>LarpOS™ v1.0.0<br>Created by Darsh (@NotALarp).<br>"The Larp never ends"';
+            } else if (command === 'date') {
+                output.innerHTML += `<br>${new Date().toString()}`;
+            } else if (command !== '') {
+                output.innerHTML += `<br>LarpOS: command not found: ${input.value.trim()}`;
+            }
+            input.value = '';
+            terminalWindow.scrollTop = terminalWindow.scrollHeight;
+        }
+    });
+}  
+
+initTerminal();
