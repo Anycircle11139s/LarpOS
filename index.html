@@ -1,73 +1,112 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>LarpOS™</title>
-        <style>
-            body {
-                background-image: url('https://github.com/Anycircle11139s/LarpOS/blob/main/LarpLarpLarpsahur.png?raw=true');
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-color: #f0f0f0;
-                font-family: Arial, sans-serif;
+<head>
+    <title>LarpOS™</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="classic">
 
-                margin: 0;
-                min-height: 100vh;
-            }
-            .center-image {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        </style>
-    </head>
-    <body>
-    <div style="position: absolute; width: 100%; display: flex; align-items: center; justify-content: space-between; background-color: rgba(0, 0, 0, 0.902); color: #fff;">
-        <div style="margin-left: 32px;">LarpOS™</div>
-
-        <div style="display: flex; align-items: center; gap: 16px; margin-left: 32px;">
-            <a href="https://github.com/Anycircle11139s/LarpOS" style="color: #fff; text-decoration: none;">Open Source On GitHub</a>
-            <p style="cursor: pointer; margin: 0;" id="welcomeclose">Close Welcome</p>
-            <p style="cursor: pointer; margin: 0;" id="welcomeopen">Open Welcome</p>
-            <p style="cursor: pointer; margin: 0;" id="helloclose">Close Hello</p>
-            <p style="cursor: pointer; margin: 0;" id="helloopen">Open Hello</p>
-            <p style="cursor: pointer; margin: 0;" id="terminalclose">Close Terminal</p>
-            <p style="cursor: pointer; margin: 0;" id="terminalopen">Open Terminal</p>
+    <div id="desktop-icons">
+        <div class="icon" data-app="Welcome">
+            <div class="icon-img">W</div>
+            <span>Welcome</span>
         </div>
-
-        <p id="live-time" style="margin-right: 32px;">Loading...</p>
-     </div>
-    
-        <div id="Welcome" style="border: solid; width: fit-content; border-radius: 16px; padding: 16px; background-color: white; position: absolute; top: 20%; left: 20%; 
-transform: translate(-50%, -50%); cursor: move; user-select: none">
-        <h1 style="text-align: center;"><strong>Welcome to LarpOS™</strong></h1>
-        <p style="text-align: center;">Created by @NotALarp (Darsh) - "The Larp never ends" </p>
-        
-
-        <div style="border: solid; width: fit-content; margin: 0 auto; border-radius: 16px; padding: 16px;">
-            <a href="https://anycircle11139s.github.io/LarpLikeAPro/" style="text-decoration: none; color: black; font-weight: bold;">Larp Like A Pro</a>
+        <div class="icon" data-app="Hello">
+            <div class="icon-img">A</div>
+            <span>About Me</span>
         </div>
+        <div class="icon" data-app="Terminal">
+            <div class="icon-img">T</div>
+            <span>Terminal</span>
         </div>
-
-        <div id="Hello" style="border: solid; width: fit-content; border-radius: 16px; padding: 16px; background-color: white; position: absolute; top: 32%; left: 62%; 
-transform: translate(-50%, -50%); cursor: move; user-select: none">
-        <h1 style="text-align: center;"><strong>About me</strong></h1>
-        <p style="text-align: center;">"I am NotALarp (Darsh)and I have created multiple hardware projects, including split keyboards, devboards and more." </p>
-        
-
-        <div style="border: solid; width: fit-content; margin: 0 auto; border-radius: 16px; padding: 16px;">
-            <a href="https://github.com/Anycircle11139s" style="text-decoration: none; color: black; font-weight: bold;">Check out my github profile!</a>
+        <div class="icon" data-app="Settings">
+            <div class="icon-img">S</div>
+            <span>Settings</span>
         </div>
-        </div>
+    </div>
 
-        <div id="Terminal" style="border: solid; width: 400px; height: 250px; border-radius: 16px; padding: 16px; background-color: #111; color: rgb(0, 255, 0); font-family: monospace; position: absolute; top: 65%; left: 40%; transform: translate(-50%, -50%); cursor: move; user-select: none; overflow-y: auto;">
+    <div id="context-menu">
+        <div class="context-item" id="ctx-wallpaper">Change Wallpaper</div>
+        <div class="context-item" id="ctx-settings">Open Settings</div>
+        <div class="context-item" id="ctx-refresh">Refresh Desktop</div>
+    </div>
+
+    <div class="window" id="Welcome" style="top:20%; left:20%; transform: translate(-50%, -50%);">
+        <div class="title-bar">
+            <div class="traffic-lights">
+                <span class="dot red" data-close="Welcome"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="title-text">Welcome to LarpOS™</span>
+        </div>
+        <div class="window-body">
+            <p>Created by @NotALarp (Darsh) — "The Larp never ends"</p>
+            <a href="https://anycircle11139s.github.io/LarpLikeAPro/" class="link-box">Larp Like A Pro</a>
+        </div>
+        <div class="resize-handle"></div>
+    </div>
+
+    <div class="window" id="Hello" style="top:32%; left:62%; transform: translate(-50%, -50%);">
+        <div class="title-bar">
+            <div class="traffic-lights">
+                <span class="dot red" data-close="Hello"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="title-text">About Me</span>
+        </div>
+        <div class="window-body">
+            <p>I am NotALarp (Darsh) and I've built multiple hardware projects, including split keyboards, devboards and more.</p>
+            <a href='https://github.com/Anycircle11139s' class="link-box">Check out my GitHub</a>
+        </div>
+        <div class="resize-handle"></div>
+    </div>
+
+    <div class="window" id="Terminal" style="top:65%; left:40%; width:400px; height:230px; transform: translate(-50%, -50%);">
+        <div class="title-bar">
+            <div class="traffic-lights">
+                <span class="dot red" data-close="Terminal"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="title-text">Terminal</span>
+        </div>
+        <div class="window-body terminal-body">
             <div id="output">Welcome to the Terminal! Type 'help'.</div>
-            <div id="input-line" style="display: flex; align-items: center; margin-top: 5px;">
-                <span style="margin-right: 5px; color: rgba(5, 90, 5, 0.686);">&gt;</span>
-                <input type="text" id="command-input" autofocus autocomplete="off" style="background: transparent; border: none; color: rgba(0, 255, 0, 0.671); font-family: monospace; outline: none; width: 100%;" />
+            <div id="input-line">
+                <span class="prompt">&gt;</span>
+                <input type="text" id="command-input" autofocus autocomplete="off" />
             </div>
         </div>
+        <div class="resize-handle"></div>
+    </div>
 
-        <script src="script.js" defer></script>
-    </body>
+    <div class="window" id="Settings" style="top:45%; left:50%; transform: translate(-50%, -50%);">
+        <div class="title-bar">
+            <div class="traffic-lights">
+                <span class="dot red" data-close="Settings"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="title-text">Settings</span>
+        </div>
+        <div class="window-body">
+            <p>Theme</p>
+            <div class="theme-options">
+                <button data-theme-btn="classic">Classic Larp</button>
+                <button data-theme-btn="night">Night Larp</button>
+            </div>
+        </div>
+        <div class="resize-handle"></div>
+    </div>
+
+    <div id="taskbar">
+        <div id="start-btn">LarpOS™</div>
+        <div id="open-windows"></div>
+        <div id="live-time">Loading...</div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
 </html>
